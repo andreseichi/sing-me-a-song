@@ -6,8 +6,6 @@ import {
 } from "../../../src/services/recommendationsService";
 
 beforeEach(async () => {
-  await prisma.$executeRaw`TRUNCATE TABLE recommendations RESTART IDENTITY CASCADE`;
-
   jest.resetAllMocks();
 });
 
