@@ -7,8 +7,8 @@
     "start": "node dist/src/server.js",
     "build": "tsc",
     "dev": "nodemon src/server.ts",
-    "test": "dotenv -e env.test jest",
-    "test:coverage": "jest -i --coverage"
+    "test": "dotenv -e .env.test -- jest",
+    "test:coverage": "dotenv -e .env.test -- jest -i --coverage"
   },
   "keywords": [],
   "author": "",
