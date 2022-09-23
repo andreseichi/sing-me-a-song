@@ -1,4 +1,3 @@
-import { prisma } from "../../../src/database";
 import { recommendationRepository } from "../../../src/repositories/recommendationRepository";
 import {
   CreateRecommendationData,
