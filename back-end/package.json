@@ -1,14 +1,13 @@
 {
   "name": "typescript-back-template",
   "version": "1.0.0",
-  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node dist/src/server.js",
     "build": "tsc",
     "dev": "nodemon src/server.ts",
-    "test": "jest",
+    "test": "dotenv -e env.test jest",
     "test:coverage": "jest -i --coverage"
   },
   "keywords": [],
