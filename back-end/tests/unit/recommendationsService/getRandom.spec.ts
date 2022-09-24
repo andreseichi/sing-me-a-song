@@ -44,20 +44,16 @@ describe("getRandom service", () => {
       },
     ];
     const mockedRandom = 0.9;
-    const scoreFilter = "gt";
 
     const randomSpy = jest
       .spyOn(global.Math, "random")
       .mockReturnValue(mockedRandom);
     jest
-      .spyOn(recommendationService, "getScoreFilter")
-      .mockReturnValue(scoreFilter);
-    jest
-      .spyOn(recommendationService, "getByScore")
-      .mockResolvedValue(recommendations);
+      .spyOn(recommendationRepository, "findAll")
+      .mockResolvedValueOnce(recommendations);
     jest
       .spyOn(recommendationRepository, "findAll")
-      .mockResolvedValue(expectedRecommendations);
+      .mockResolvedValueOnce(expectedRecommendations);
 
     const result = await recommendationService.getRandom();
 
@@ -102,20 +98,16 @@ describe("getRandom service", () => {
       },
     ];
     const mockedRandom = 0.2;
-    const scoreFilter = "lte";
 
     const randomSpy = jest
       .spyOn(global.Math, "random")
       .mockReturnValue(mockedRandom);
     jest
-      .spyOn(recommendationService, "getScoreFilter")
-      .mockReturnValue(scoreFilter);
-    jest
-      .spyOn(recommendationService, "getByScore")
-      .mockResolvedValue(recommendations);
+      .spyOn(recommendationRepository, "findAll")
+      .mockResolvedValueOnce(recommendations);
     jest
       .spyOn(recommendationRepository, "findAll")
-      .mockResolvedValue(expectedRecommendations);
+      .mockResolvedValueOnce(expectedRecommendations);
 
     const result = await recommendationService.getRandom();
 
@@ -131,26 +123,6 @@ describe("getRandom service", () => {
   });
 
   it("should return a random recommendation if there are no recommendations with score greater than 10", async () => {
-    const recommendations = [
-      {
-        id: 1,
-        name: "Test",
-        youtubeLink: "https://www.youtube.com/watch?v=1",
-        score: 0,
-      },
-      {
-        id: 2,
-        name: "Test 2",
-        youtubeLink: "https://www.youtube.com/watch?v=1",
-        score: 5,
-      },
-      {
-        id: 3,
-        name: "Test 3",
-        youtubeLink: "https://www.youtube.com/watch?v=1",
-        score: 10,
-      },
-    ];
     const expectedRecommendations = [
       {
         id: 1,
@@ -172,17 +144,10 @@ describe("getRandom service", () => {
       },
     ];
     const mockedRandom = 0.9;
-    const scoreFilter = "gt";
 
     const randomSpy = jest
       .spyOn(global.Math, "random")
       .mockReturnValue(mockedRandom);
-    jest
-      .spyOn(recommendationService, "getScoreFilter")
-      .mockReturnValue(scoreFilter);
-    jest
-      .spyOn(recommendationService, "getByScore")
-      .mockResolvedValue(recommendations);
     jest.spyOn(recommendationRepository, "findAll").mockResolvedValueOnce([]);
     jest
       .spyOn(recommendationRepository, "findAll")
@@ -202,26 +167,6 @@ describe("getRandom service", () => {
   });
 
   it("should return a random recommendation if there are no recommendations with score less than or equal to 10", async () => {
-    const recommendations = [
-      {
-        id: 1,
-        name: "Test",
-        youtubeLink: "https://www.youtube.com/watch?v=1",
-        score: 15,
-      },
-      {
-        id: 2,
-        name: "Test 2",
-        youtubeLink: "https://www.youtube.com/watch?v=1",
-        score: 20,
-      },
-      {
-        id: 3,
-        name: "Test 3",
-        youtubeLink: "https://www.youtube.com/watch?v=1",
-        score: 25,
-      },
-    ];
     const expectedRecommendations = [
       {
         id: 1,
@@ -243,17 +188,11 @@ describe("getRandom service", () => {
       },
     ];
     const mockedRandom = 0.2;
-    const scoreFilter = "lte";
 
     const randomSpy = jest
       .spyOn(global.Math, "random")
       .mockReturnValue(mockedRandom);
-    jest
-      .spyOn(recommendationService, "getScoreFilter")
-      .mockReturnValue(scoreFilter);
-    jest
-      .spyOn(recommendationService, "getByScore")
-      .mockResolvedValue(recommendations);
+    jest;
     jest.spyOn(recommendationRepository, "findAll").mockResolvedValueOnce([]);
     jest
       .spyOn(recommendationRepository, "findAll")
