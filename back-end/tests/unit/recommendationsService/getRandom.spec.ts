@@ -210,4 +210,21 @@ describe("getRandom service", () => {
     expect(result.score).toBeGreaterThan(10);
     expect(recommendationRepository.findAll).toHaveBeenCalledTimes(2);
   });
+
+  it("should throw an error if there are no recommendations", async () => {
+    const mockedRandom = 0.2;
+    const randomSpy = jest
+      .spyOn(global.Math, "random")
+      .mockReturnValue(mockedRandom);
+
+    jest.spyOn(recommendationRepository, "findAll").mockResolvedValue([]);
+
+    const promise = recommendationService.getRandom();
+
+    expect(randomSpy).toHaveBeenCalledTimes(1);
+    expect(promise).rejects.toEqual({
+      message: "",
+      type: "not_found",
+    });
+  });
 });
