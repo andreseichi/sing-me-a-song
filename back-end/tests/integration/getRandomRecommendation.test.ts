@@ -142,4 +142,12 @@ describe("route GET /recommendations/random", () => {
     );
     expect(expectedRecommendation.score).toBeGreaterThan(10);
   });
+
+  it("should return status code 404 if there is no recommendations", async () => {
+    const response = await server.get("/recommendations/random");
+    const promise = recommendationService.getRandom();
+
+    expect(promise).rejects.toEqual({ message: "", type: "not_found" });
+    expect(response.status).toBe(404);
+  });
 });
