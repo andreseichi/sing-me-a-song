@@ -7,7 +7,7 @@
     "start": "node dist/src/server.js",
     "build": "tsc",
     "dev": "nodemon src/server.ts",
-    "test": "dotenv -e .env.test -- jest",
+    "test": "dotenv -e .env.test -- jest -i",
     "test:coverage": "dotenv -e .env.test -- jest -i --coverage"
   },
   "keywords": [],
