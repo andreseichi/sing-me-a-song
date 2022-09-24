@@ -5,6 +5,10 @@ import { recommendationRepository } from "../../src/repositories/recommendationR
 import recommendationBodyFactory from "../factories/recommendationBodyFactory";
 import { deleteAllData } from "../factories/scenarioFactory";
 
+beforeEach(async () => {
+  await deleteAllData();
+});
+
 afterAll(async () => {
   prisma.$disconnect();
 });
@@ -12,10 +16,6 @@ afterAll(async () => {
 const server = supertest(app);
 
 describe("route POST /recommendations", () => {
-  beforeEach(async () => {
-    await deleteAllData();
-  });
-
   it("should answer with status 422 for invalid body", async () => {
     const recommendationBody = recommendationBodyFactory();
     const recommendationBodyWithInvalidYoutubeLink = {
