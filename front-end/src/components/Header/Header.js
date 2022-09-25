@@ -3,7 +3,7 @@ import { VscPlayCircle } from "react-icons/vsc";
 
 export default function Header() {
   return (
-    <StyledHeader>
+    <StyledHeader data-cy="header">
       <VscPlayCircle size="28px" color="#e90000" />
       Sing me a Song
     </StyledHeader>

@@ -9,7 +9,7 @@ export default function Menu() {
   const navigate = useNavigate();
 
   return (
-    <StyledMenu>
+    <StyledMenu data-cy="menu">
       <MenuItem onClick={() => navigate("/")} data-cy="page-home">
         <FaHome />
         Home
