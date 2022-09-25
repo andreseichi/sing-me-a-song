@@ -79,4 +79,60 @@ describe("Add recommendation ", () => {
       expect(str).to.equal("Error creating recommendation!");
     });
   });
+
+  it("should not be able to add a new recommendation with empty name", () => {
+    cy.visit(Cypress.env("APP_URL"));
+    cy.intercept(
+      "GET",
+      Cypress.env("REACT_APP_API_BASE_URL") + "/recommendations"
+    ).as("getRecommendations");
+    cy.wait("@getRecommendations", { timeout: 10000 });
+
+    cy.get("[data-cy=link-input]").type(
+      "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    );
+    cy.get("[data-cy=submit-button]").click();
+
+    cy.intercept(
+      "GET",
+      Cypress.env("REACT_APP_API_BASE_URL") + "/recommendations"
+    ).as("getRecommendations");
+
+    cy.wait("@getRecommendations").then((interception) => {
+      expect(interception.response.body).to.have.lengthOf(0);
+    });
+
+    cy.get("[data-cy=recommendation]").should("have.length", 0);
+
+    cy.on("window:alert", (str) => {
+      expect(str).to.equal("Error creating recommendation!");
+    });
+  });
+
+  it("should not be able to add a new recommendation with empty link", () => {
+    cy.visit(Cypress.env("APP_URL"));
+    cy.intercept(
+      "GET",
+      Cypress.env("REACT_APP_API_BASE_URL") + "/recommendations"
+    ).as("getRecommendations");
+    cy.wait("@getRecommendations", { timeout: 10000 });
+
+    cy.get("[data-cy=name-input]").type("Recommendation video name");
+    cy.get("[data-cy=submit-button]").click();
+
+    cy.intercept(
+      "GET",
+      Cypress.env("REACT_APP_API_BASE_URL") + "/recommendations"
+    ).as("getRecommendations");
+
+    cy.wait("@getRecommendations").then((interception) => {
+      expect(interception.response.body).to.have.lengthOf(0);
+    });
+
+    cy.get("[data-cy=recommendation]").should("have.length", 0);
+
+    cy.on("window:alert", (str) => {
+      expect(str).to.equal("Error creating recommendation!");
+    });
+  });
 });
