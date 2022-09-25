@@ -34,6 +34,7 @@ export async function seedDatabase(req: Request, res: Response) {
   await updateScoreRecommendation(4, "increment", 1);
   await updateScoreRecommendation(5, "increment", 99);
   await updateScoreRecommendation(6, "decrement", 3);
+  await updateScoreRecommendation(7, "decrement", 5);
 
   res.sendStatus(200);
 }
