@@ -11,6 +11,12 @@ async function main() {
       recommendationBodyFactory(),
       recommendationBodyFactory(),
       recommendationBodyFactory(),
+      recommendationBodyFactory(),
+      recommendationBodyFactory(),
+      recommendationBodyFactory(),
+      recommendationBodyFactory(),
+      recommendationBodyFactory(),
+      recommendationBodyFactory(),
     ],
   });
 }
