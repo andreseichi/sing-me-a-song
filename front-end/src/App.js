@@ -28,7 +28,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/top" element={<Top />} />
           <Route path="/random" element={<Random />} />
-          <Route path="*" element={<div>Not found!</div>} />
+          <Route path="*" element={<div data-cy="not-found">Not found!</div>} />
         </Route>
       </Routes>
     </Router>
