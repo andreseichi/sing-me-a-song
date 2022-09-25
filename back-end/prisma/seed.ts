@@ -1,6 +1,7 @@
 import { prisma } from "../src/database";
 
 import recommendationBodyFactory from "../tests/factories/recommendationBodyFactory";
+import updateScoreRecommendation from "../tests/factories/updateScoreRecommendationFactory";
 
 async function main() {
   await prisma.recommendation.createMany({
@@ -19,6 +20,13 @@ async function main() {
       recommendationBodyFactory(),
     ],
   });
+
+  await updateScoreRecommendation(1, "increment", 100);
+  await updateScoreRecommendation(2, "increment", 25);
+  await updateScoreRecommendation(3, "increment", 30);
+  await updateScoreRecommendation(4, "increment", 1);
+  await updateScoreRecommendation(5, "increment", 99);
+  await updateScoreRecommendation(6, "decrement", 3);
 }
 
 main()
