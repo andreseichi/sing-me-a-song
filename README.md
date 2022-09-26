@@ -9,8 +9,11 @@
   ![Yarn](https://img.shields.io/badge/yarn-%232C8EBB.svg?style=for-the-badge&logo=yarn&logoColor=white)
   ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
   ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+  ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
   ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
   ![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
+  ![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
+  ![cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e)
   <a href="https://github.com/andreseichi/sing-me-a-song/commits">
     <img alt="Github repo size" src="https://img.shields.io/github/repo-size/andreseichi/sing-me-a-song?style=for-the-badge">
   </a>
@@ -23,62 +26,10 @@
 
 ## Run the project
 
-Clone the repo
+### Back-end
 
-```bash
-  git clone https://github.com/andreseichi/sing-me-a-song
-```
+**See [Back-end README](https://github.com/andreseichi/sing-me-a-song/blob/main/back-end/README.md)**
 
-### Run the back-end
+### Front-end
 
-```bash
-  cd sing-me-a-song/back-end
-```
-
-Install all dependencies
-
-```bash
-  yarn
-```
-
-Set the database in the `.env`
-
-```bash
-  DATABASE_URL=postgres://postgres:admin@localhost:5432/singmeasong
-```
-
-Run prisma migrate
-
-```bash
-  npx prisma migrate dev
-```
-
-Start the server
-
-```bash
-  yarn dev
-```
-
-### Run the front-end
-
-```bash
-  cd sing-me-a-song/front-end
-```
-
-Install all dependencies
-
-```bash
-  yarn
-```
-
-Set the `.env` for the back-end url
-
-```bash
-  REACT_APP_API_BASE_URL
-```
-
-Start the server
-
-```bash
-  yarn start
-```
+**See [Front-end README](https://github.com/andreseichi/sing-me-a-song/blob/main/front-end/README.md)**
