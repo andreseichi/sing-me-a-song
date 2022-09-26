@@ -18,4 +18,67 @@
     <img alt="Last commit" src="https://img.shields.io/github/last-commit/andreseichi/sing-me-a-song?style=for-the-badge" />
   </a>
 </div>
-​
+
+</br>
+
+## Run the project
+
+Clone the repo
+
+```bash
+  git clone https://github.com/andreseichi/sing-me-a-song
+```
+
+### Run the back-end
+
+```bash
+  cd sing-me-a-song/back-end
+```
+
+Install all dependencies
+
+```bash
+  yarn
+```
+
+Set the database in the `.env`
+
+```bash
+  DATABASE_URL=postgres://postgres:admin@localhost:5432/singmeasong
+```
+
+Run prisma migrate
+
+```bash
+  npx prisma migrate dev
+```
+
+Start the server
+
+```bash
+  yarn dev
+```
+
+### Run the front-end
+
+```bash
+  cd sing-me-a-song/front-end
+```
+
+Install all dependencies
+
+```bash
+  yarn
+```
+
+Set the `.env` for the back-end url
+
+```bash
+  REACT_APP_API_BASE_URL
+```
+
+Start the server
+
+```bash
+  yarn start
+```
